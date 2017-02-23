@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="example">
+    <my-component></my-component>
+    <my-for></my-for>
+</div>
+<script src="../src/vue.js"></script>
+<script>
+    // 创建根实例
+    new Vue({
+        el: '#example',
+        components:{
+            'my-component':{
+                template: '<div v-on:click="count += 1">{{count}}</div>',
+                data:function(){
+                    return {count:0};
+                }
+            },
+            "my-for":{
+                template:'<div><div v-for="item in items">{{item.name}}</div></div>',
+                data:function(){
+                    return {items:[{name:"1"},{"name":2},{name:"3"}]};
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
